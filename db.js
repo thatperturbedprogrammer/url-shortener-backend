@@ -2,10 +2,14 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost/url_shortener");
-    console.log("MongoDB connected!");
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("MongoDB Atlas connected!");
   } catch (error) {
-    console.error("MongoDB connection error:", error);
+    console.error("MongoDB connection error:", error.message);
+    process.exit(1); // optional: stop app if DB fails
   }
 };
 
