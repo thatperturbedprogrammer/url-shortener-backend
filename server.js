@@ -51,7 +51,7 @@ app.post("/shorten", shortenLimiter, async (req, res) => {
 
     if (url) {
       return res.json({
-        shortUrl: `http://localhost:${PORT}/${url.shortUrl}`,
+        shortUrl: `https://url-shortener-backend-6ti4.onrender.com/${url.shortUrl}`,
       });
     }
 
@@ -66,7 +66,7 @@ app.post("/shorten", shortenLimiter, async (req, res) => {
 
     await url.save();
     return res.json({
-      shortUrl: `http://localhost:${PORT}/${url.shortUrl}`,
+      shortUrl: `https://url-shortener-backend-6ti4.onrender.com/${url.shortUrl}`,
     });
   } catch (error) {
     console.error("Error:", error);
@@ -113,5 +113,5 @@ app.get("/analytics/:shortUrl", async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`URL Shortener Server running on port http://localhost:${PORT}`);
+  console.log(`URL Shortener Server running on port https://url-shortener-backend-6ti4.onrender.com`);
 });
